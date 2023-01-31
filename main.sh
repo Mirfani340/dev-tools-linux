@@ -2,11 +2,15 @@
 
 # Define functions for menu options
 function option1 {
-    echo "You selected option 1"
+    source plugin/hello.sh
+    echo "The script is done"
+
+    clear
 }
 
 function option2 {
-    echo "You selected option 2"
+    echo "Installing NVM, please wait sir"
+    source plugin/install_nvm.sh
 }
 
 function option3 {
@@ -14,11 +18,13 @@ function option3 {
 }
 
 # Main menu
+source lib/system_check.sh
+
 while true; do
     echo "Main Menu"
-    echo "1. Option 1"
-    echo "2. Option 2"
-    echo "3. Option 3"
+    echo "1. Hello"
+    echo "2. Install NVM (Node Version Manager)"
+    echo "3. Install Docker + Docker-compose"
     echo "4. Exit"
     read -p "Enter your choice [1-4]: " choice
     case $choice in
